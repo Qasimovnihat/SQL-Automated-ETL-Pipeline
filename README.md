@@ -1,7 +1,7 @@
 #  Automated E-Commerce Data Cleaning & ETL Pipeline
 
 ##  Project Overview
-This project completely automates the data cleaning process for a large-scale e-commerce dataset containing over 1,000,000 rows. 
+This project completely automates the data cleaning process for a large-scale e-commerce dataset containing over 500.000+ rows. 
 The goal was to eliminate manual data preparation, handle data type errors (like `#N/A` strings), and provide a clean, analysis-ready dataset updated daily.
 
 ##  Tools & Technologies Used
