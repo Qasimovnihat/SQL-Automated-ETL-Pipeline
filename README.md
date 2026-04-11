@@ -1,3 +1,7 @@
+
+
+https://github.com/user-attachments/assets/51e6eaa4-d6d8-4301-ab60-7e0b1f843555
+
 #  Automated E-Commerce Data Cleaning & ETL Pipeline
 
 ##  Project Overview
