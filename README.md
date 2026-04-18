@@ -4,7 +4,7 @@ https://github.com/user-attachments/assets/002a152c-6fe9-417b-a200-e85c798969da
 
 
 
-# 🚀 Avtomatlaşdırılmış E-ticarət ETL Boru Xətti (Data Cleaning)
+# 🚀 Avtomatlaşdırılmış E-ticarət ETL (Data Cleaning)
 
 ![SQL Server](https://img.shields.io/badge/Database-SQL%20Server-red?style=flat-square&logo=microsoft-sql-server)
 ![T-SQL](https://img.shields.io/badge/Language-T--SQL-blue?style=flat-square)
