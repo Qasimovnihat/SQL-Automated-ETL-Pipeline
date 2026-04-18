@@ -6,32 +6,36 @@ https://github.com/user-attachments/assets/002a152c-6fe9-417b-a200-e85c798969da
 
 
 
-#  Automated E-Commerce Data Cleaning & ETL Pipeline
+Avtomatlaşdırılmış E-ticarət Məlumatlarının Təmizlənməsi və ETL (Pipeline)
+Layihənin İcmalı
+Bu layihə 500.000-dən çox sətirdən ibarət irimiqyaslı e-ticarət məlumat dəstinin təmizlənməsi prosesini tamamilə avtomatlaşdırır. Məqsəd, məlumatların mexaniki (manual) hazırlanması prosesini aradan qaldırmaq, məlumat tipi xətalarını (məsələn, #N/A mətnləri) həll etmək və hər gün yenilənən, analiz üçün hazır təmiz məlumat dəsti təmin etməkdir.
 
-##  Project Overview
-This project completely automates the data cleaning process for a large-scale e-commerce dataset containing over 500.000+ rows. 
-The goal was to eliminate manual data preparation, handle data type errors (like `#N/A` strings), and provide a clean, analysis-ready dataset updated daily.
+İstifadə Olunan Alətlər və Texnologiyalar
+Verilənlər Bazası: SQL Server
 
-##  Tools & Technologies Used
-* **Database:** SQL Server
-* **Automation:** SQL Server Agent
-* **Language:** T-SQL (Stored Procedures, CTEs)
-* **Future Integration:** Ready for Power BI / Tableau visualization
+Avtomatlaşdırma: SQL Server Agent
 
-##  The Problem
-Working with the raw e-commerce dataset presented several challenges:
-* The `item_id` and `Customer_ID` columns contained `#N/A` text values, causing type conversion failures.
-* Null values in critical categorical and financial columns.
-* Duplicate records distorting sales metrics.
+Dil: T-SQL (Saxlanılan Prosedurlar - Stored Procedures, CTE-lər)
 
-##  The Solution (My Approach)
-I developed a robust Stored Procedure (`sp_DailySalesCleaning`) that executes a "Full Refresh" ETL logic:
-1. **Error Handling:** Used `TRY_CAST` to safely convert messy text columns into `INT` without breaking the process.
-2. **Data Imputation:** Handled `NULL` values using `ISNULL()` for categories, prices, and quantities.
-3. **Deduplication:** Utilized Common Table Expressions (CTEs) with `ROW_NUMBER()` to identify and remove duplicate rows.
+Gələcək İnteqrasiya: Power BI / Tableau vizuallaşdırması üçün hazır vəziyyətdədir.
 
-##  Automation 
-To ensure the data is always up-to-date, I configured a **SQL Server Agent Job** scheduled to run automatically at **02:00 AM** every night. 
-It drops the old cleaned table and recreates a fresh one from the latest raw data.
+Problem
+Xam e-ticarət məlumatları ilə işləyərkən bir neçə çətinlik ortaya çıxdı:
 
+item_id və Customer_ID sütunlarında #N/A tipli mətn dəyərlərinin olması məlumat tiplərinin çevrilməsi zamanı xətalara səbəb olurdu.
 
+Kritik kateqoriyal və maliyyə sütunlarında boş (NULL) dəyərlərin olması.
+
+Satış göstəricilərini (metrikalarını) təhrif edən təkrarlanan (dublikat) qeydlər.
+
+Həll Yolu (Mənim Yanaşmam)
+Mən "Tam Yeniləmə" (Full Refresh) ETL məntiqi ilə işləyən möhkəm bir Saxlanılan Prosedur (sp_DailySalesCleaning) hazırladım:
+
+Xətaların İdarə Edilməsi: Problemli mətn sütunlarını prosesi dayandırmadan təhlükəsiz şəkildə INT tipinə çevirmək üçün TRY_CAST funksiyasından istifadə etdim.
+
+Məlumatların Tamamlanması (Imputation): Kateqoriyalar, qiymətlər və miqdar sütunlarındakı NULL dəyərləri ISNULL() funksiyası ilə tənzimlədim.
+
+Təkrarların Təmizlənməsi: Dublikat sətirləri müəyyən etmək və silmək üçün ROW_NUMBER() funksiyası ilə Ümumi Cədvəl İfadələri (CTE) tətbiq etdim.
+
+Avtomatlaşdırma
+Məlumatların həmişə aktual qalmasını təmin etmək üçün hər gecə saat 02:00-da avtomatik işləyən bir SQL Server Agent Job quraşdırdım. Bu tapşırıq köhnə təmizlənmiş cədvəli silir və ən son xam məlumatlar əsasında yenisini yaradır.
